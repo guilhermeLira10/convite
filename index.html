@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Convite Especial 💌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fef6e4;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    h1 {
+      color: #ff6b6b;
+    }
+
+    #sim {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      margin-top: 20px;
+    }
+
+    #nao {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+      top: 60%;
+      left: 60%;
+      transition: top 0.2s, left 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Cafe superfaturado amanha? 😄</h1>
+    <button id="sim" onclick="alert('Uffa! 😍 As chances de ser golpe ate diminuiu !')">Sim</button>
+  </div>
+
+  <button id="nao" style="z-index: 10000;">Não</button>
+
+  <script>
+    const botaoNao = document.getElementById("nao");
+
+    botaoNao.addEventListener("mouseenter", () => {
+      const larguraTela = window.innerWidth;
+      const alturaTela = window.innerHeight;
+      const larguraBotao = botaoNao.offsetWidth;
+      const alturaBotao = botaoNao.offsetHeight;
+      const margem = 20;
+
+      // limitar a posição para que o botão não saia da tela
+      const maxX = larguraTela - larguraBotao - margem;
+      const maxY = alturaTela - alturaBotao - margem;
+
+      const novaPosX = Math.random() * maxX;
+      const novaPosY = Math.random() * maxY;
+
+      botaoNao.style.left = `${novaPosX}px`;
+      botaoNao.style.top = `${novaPosY}px`;
+    });
+  </script>
+
+</body>
+</html>
